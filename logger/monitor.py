@@ -1,6 +1,6 @@
 import time
 import os
-from envirophat import weather, leds, light
+import random
 from influxdb import InfluxDBClient
 
 influx_host = os.getenv("INFLUX_HOST")
@@ -22,49 +22,25 @@ def get_cpu_temp():
     return temp_cpu
 
 def get_data_points():
-    temp_cpu = get_cpu_temp()
-    temperature = weather.temperature()
-    pressure = round(weather.pressure(), 2)
-    light_val = light.light()
+    temperature, humidity = random.randint(150, 200) * 1.0/10, random.randint(400, 600) * 1.0/10
 
     iso = time.ctime()
-    json_body = [
-            {
-                "measurement": "ambient_celcius",
-                "tags": {"host": host},
-                "time": iso,
-                "fields": {
-                    "value": temperature,
-                    "val": float(temperature)
+    json_body = [{
+                    "measurement": "ambient_celcius",
+                    "tags": {"host": host},
+                    "time": iso,
+                    "fields": {
+                        "value": temperature,
+                        }
+                    },
+                {
+                    "measurement": "humidity_percent",
+                    "tags": {"host": host},
+                    "time": iso,
+                    "fields": {
+                        "value": humidity,
                     }
-                },
-            {
-                "measurement": "cpu_celcius",
-                "tags": {"host": host},
-                "time": iso,
-                "fields": {
-                    "value": temp_cpu,
-                    }
-                },
-            {
-                "measurement": "ambient_light",
-                "tags": {"host": host},
-                "time": iso,
-                "fields": {
-                    "value": light_val,
-                    }
-                },
-            {
-                "measurement": "ambient_pressure",
-                "tags": {"host": host},
-                "time": iso,
-                "fields": {
-                    "value": pressure,
-                    }
-                }
-
-            ]
-
+                }]
     return json_body
 
 try:

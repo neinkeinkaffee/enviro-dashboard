@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export INFLUX_HOST=192.168.0.3
-export PI_HOST=study
-export SAMPLE_PAUSE=30
-python2 ./monitor.py 
+export INFLUX_HOST=10.5.51.202
+export PI_HOST=kitchen
+export SAMPLE_PAUSE=5
+python ./monitor.py
 
