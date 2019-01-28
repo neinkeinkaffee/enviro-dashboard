@@ -1,0 +1,2 @@
+influxdb
+Adafruit_DHT
