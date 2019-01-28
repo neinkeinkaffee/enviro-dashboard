@@ -10,6 +10,7 @@ user = "root"
 password = "root"
 host = os.getenv("PI_HOST")
 sleep_time = os.getenv("SAMPLE_PAUSE")
+fake_sensor = os.getenv("FAKE_SENSOR")
 
 client = InfluxDBClient(influx_host, port, user, password, dbname)
 client.create_database(dbname)
@@ -22,7 +23,11 @@ def get_cpu_temp():
     return temp_cpu
 
 def get_data_points():
-    temperature, humidity = random.randint(150, 200) * 1.0/10, random.randint(400, 600) * 1.0/10
+    if fake_sensor:
+        humidity, temperature = random.randint(400, 600) * 1.0/10, random.randint(150, 200) * 1.0/10
+    else:
+        import Adafruit_DHT
+        humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
 
     iso = time.ctime()
     json_body = [{
