@@ -5,6 +5,6 @@ export PI_HOST=kitchen
 export SAMPLE_PAUSE=5
 export FAKE_SENSOR=True
 
-source venv/bin/activate
+. venv/bin/activate
 python ./monitor.py
 
