@@ -23,7 +23,7 @@ def get_cpu_temp():
     return temp_cpu
 
 def get_data_points():
-    humidity, temperature = Adafruit_DHT.read_retry(4, 11)
+    humidity, temperature = Adafruit_DHT.read_retry(11, 4)
 
     iso = time.ctime()
     json_body = [{
