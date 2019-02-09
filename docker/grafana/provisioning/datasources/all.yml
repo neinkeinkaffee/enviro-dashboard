@@ -1,0 +1,16 @@
+datasources:
+  - name: 'flux'
+    type: 'influxdb'
+    access: 'proxy'
+    org_id: 1
+    url: 'http://influxdb:8086'
+    is_default: false
+    database: 'environment'
+    typeLogoUrl: 'public/app/plugins/datasource/influxdb/img/influxdb_logo.svg'
+    password: 'root'
+    user: 'root'
+    basicAuth: false
+    withCredentials: false
+    version: 1
+    editable: true
+

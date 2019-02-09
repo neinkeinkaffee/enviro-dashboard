@@ -10,7 +10,7 @@ services:
        - INFLUXDB_PASS=root
        - INFLUXDB_NAME=stats
     grafana:
-      image: grafana/grafana
+      build: docker/grafana
       environment:
        - NO_PROXY="influxdb"
       links:

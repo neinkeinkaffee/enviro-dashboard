@@ -1,4 +1,4 @@
-FROM alexellis2/python2-gpio-armhf:2
+FROM python:3.6
 RUN pip install influxdb
 ADD ./monitor.py ./monitor.py
 

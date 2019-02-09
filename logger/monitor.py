@@ -1,6 +1,7 @@
 import os
 import time
-import Adafruit_DHT
+import random
+#import Adafruit_DHT
 from influxdb import InfluxDBClient
 
 influx_host = os.getenv("INFLUX_HOST")
@@ -22,7 +23,9 @@ def get_cpu_temp():
     return temp_cpu
 
 def get_data_points():
-    humidity, temperature = Adafruit_DHT.read_retry(11, 4)
+    #humidity, temperature = Adafruit_DHT.read_retry(11, 4)
+    humidity = 40 + random.random() * 15
+    temperature = 15 + random.random() * 5
 
     iso = time.ctime()
     json_body = [{
