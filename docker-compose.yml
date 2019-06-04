@@ -13,6 +13,7 @@ services:
       build: docker/grafana
       environment:
        - NO_PROXY="influxdb"
+       - GF_SERVER_ROOT_URL=BASE_URL_AND_SUBPATH/ # e.g. https://www.my-page.de, https://dashboard.my-page.de, https://my-page.de/dashboard
       links:
        - influxdb
       ports:
