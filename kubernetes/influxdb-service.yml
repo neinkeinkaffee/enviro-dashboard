@@ -10,8 +10,10 @@ spec:
   type: ClusterIP
   ports:
     - port: 8083
+      name: secondary-port
       protocol: TCP
       targetPort: 8083
     - port: 8086
+      name: primary-port
       protocol: TCP
-      targetProt: 8086
+      targetPort: 8086
