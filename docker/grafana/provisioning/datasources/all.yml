@@ -17,6 +17,6 @@ datasources:
     type: prometheus
     access: proxy
     orgId: 1
-    url: https://things-on-top-of-other-things/prometheus
+    url: http://192.168.0.101:9090/prometheus
     version: 1
     editable: true
