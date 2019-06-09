@@ -13,4 +13,10 @@ datasources:
     withCredentials: false
     version: 1
     editable: true
-
+  - name: 'Prometheus'
+    type: 'prometheus'
+    access: 'proxy'
+    org_id: 2
+    isDefault: false
+    url: https://things-on-top-of-other-things.de/prometheus
+    editable: true
