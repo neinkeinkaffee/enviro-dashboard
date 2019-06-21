@@ -1,7 +1,6 @@
 import os
 import time
-import random
-#import Adafruit_DHT
+import Adafruit_DHT
 from influxdb import InfluxDBClient
 
 influx_host = os.getenv("INFLUX_HOST")
