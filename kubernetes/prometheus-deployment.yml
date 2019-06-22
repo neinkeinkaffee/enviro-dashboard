@@ -16,7 +16,8 @@ spec:
           image: neinkeinkaffee/prometheus
           args:
             - "--config.file=/etc/prometheus/prometheus.yml"
-            - "--storage.tsdb.path=/prometheus/"
+            - "--web.route-prefix=/prometheus"
+            - "--web.external-url=BASE_URL/prometheus"
           volumeMounts:
             - name: prometheus-volume-mount
               mountPath: /prometheus
