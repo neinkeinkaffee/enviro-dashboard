@@ -14,9 +14,12 @@ spec:
       containers:
         - name: prometheus
           image: neinkeinkaffee/prometheus
+          args:
+            - "--config.file=/etc/prometheus/prometheus.yml"
+            - "--storage.tsdb.path=/prometheus/"
           volumeMounts:
             - name: prometheus-volume-mount
-              mountPath: /etc/prometheus
+              mountPath: /prometheus
       volumes:
         - name: prometheus-volume-mount
           persistentVolumeClaim:
