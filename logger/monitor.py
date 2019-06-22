@@ -4,7 +4,7 @@ import Adafruit_DHT
 from influxdb import InfluxDBClient
 
 influx_host = os.getenv("INFLUX_HOST")
-port = 8086
+influx_port = os.getenv("INFLUX_PORT")
 dbname = "environment"
 user = "root"
 password = "root"
