@@ -21,11 +21,11 @@ spec:
               value: root
             - name: INFLUXDB_NAME
               value: stats
-#          volumeMounts:
-#            - name: postgres-volume-mount
-#              mountPath: /var/lib/postgresql/data
-#      volumes:
-#        - name: postgres-volume-mount
-#          persistentVolumeClaim:
-#            claimName: postgres-pvc
+          volumeMounts:
+            - name: influxdb-volume-mount
+              mountPath: /var/lib/influxdb
+      volumes:
+        - name: influxdb-volume-mount
+          persistentVolumeClaim:
+            claimName: influxdb-pvc
       restartPolicy: Always
