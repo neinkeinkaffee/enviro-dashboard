@@ -19,11 +19,4 @@ spec:
             value: influxdb
           - name: GF_SERVER_ROOT_URL
             value: BASE_URL_AND_PATH
-#          volumeMounts:
-#            - name: postgres-volume-mount
-#              mountPath: /var/lib/postgresql/data
-#      volumes:
-#        - name: postgres-volume-mount
-#          persistentVolumeClaim:
-#            claimName: postgres-pvc
       restartPolicy: Always
