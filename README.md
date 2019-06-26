@@ -5,8 +5,11 @@ Dashboard stack for monitoring environment with InfluxDB + Grafana
 
 ### Run prometheus with docker
 ```
-docker run -p 9090:9090 \
-    -v prometheus.yml:/etc/prometheus/prometheus.yml \
-    --name prometheus \
-    prom/prometheus
+docker run -d -p 9090:9090 \
+    -v $REPO_BASE_DIR/docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml \
+    prom/prometheus \
+    --web.route-prefix=/prometheus \
+    --web.external-url=$BASE_URL/prometheus \
+    --config.file=/etc/prometheus/prometheus.yml \
+    --storage.tsdb.retention.time=3d
 ```
